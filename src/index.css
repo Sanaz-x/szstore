@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 40% 5%;
+    --foreground: 0 0% 100%;
+    --card: 230 28% 15%;
+    --card-foreground: 0 0% 100%;
+    --popover: 225 40% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 195 65% 77%;
+    --primary-foreground: 225 40% 5%;
+    --secondary: 288 95% 62%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 230 28% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 288 95% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 340 100% 62%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 195 65% 77%;
+    --input: 230 28% 15%;
+    --ring: 195 65% 77%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-[#050816] text-white antialiased;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer components {
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #9FD3E8, #BEEAF5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-magenta {
+    background: linear-gradient(135deg, #E040FB, #FF4081);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .neon-border {
+    border: 1px solid rgba(159, 211, 232, 0.15);
+  }
+
+  .neon-border-hover:hover {
+    border-color: rgba(159, 211, 232, 0.4);
+    box-shadow: 0 0 20px rgba(159, 211, 232, 0.4), 0 0 40px rgba(159, 211, 232, 0.2);
+  }
+
+  .neon-glow-cyan {
+    box-shadow: 0 0 20px rgba(159, 211, 232, 0.4), 0 0 40px rgba(159, 211, 232, 0.2);
+  }
+
+  .neon-glow-magenta {
+    box-shadow: 0 0 20px rgba(224, 64, 251, 0.4), 0 0 40px rgba(224, 64, 251, 0.2);
+  }
+
+  .card-surface {
+    background: linear-gradient(145deg, #2E3350 0%, #1a1f35 100%);
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .marquee-item {
+    background: linear-gradient(135deg, #E040FB, #FF4081);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 10px rgba(224, 64, 251, 0.3);
+    font-weight: 600;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(600px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes blink-colon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.animate-sweep {
+  animation: sweep 3.5s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-ticker {
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.animate-blink-colon {
+  animation: blink-colon 1s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #1a1f35 25%, #2E3350 50%, #1a1f35 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* CRT Canvas */
+.crt-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  image-rendering: pixelated;
+}
+
+/* Laser line */
+.laser-line {
+  background: linear-gradient(90deg, transparent, #00E5FF, #9FD3E8, #E040FB, transparent);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.8), 0 0 30px rgba(0, 229, 255, 0.4), 0 0 45px rgba(159, 211, 232, 0.3), 0 0 60px rgba(224, 64, 251, 0.2);
+  border-radius: 2px;
+}
+
+/* ── Skeleton Shimmer ── */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Progress Bar Width Transition ── */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--target-width, 100%); }
+}
+
+/* ── Modal Fade In ── */
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Ping Animation for status dot ── */
+@keyframes ping-dot {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A1020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(159, 211, 232, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(159, 211, 232, 0.5);
+}
